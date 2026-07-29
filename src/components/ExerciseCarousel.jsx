@@ -26,9 +26,14 @@ function PlaceholderSlide({ label, index, accent }) {
 function ImageCard({ src, label, index, accent }) {
   const [failed, setFailed] = useState(false);
   if (failed) return <PlaceholderSlide label={label} index={index} accent={accent} />;
+  
+  // Resolver la ruta de la imagen usando el BASE_URL de Vite para GitHub Pages
+  const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+  const resolvedSrc = import.meta.env.BASE_URL + cleanSrc;
+
   return (
     <img
-      src={src}
+      src={resolvedSrc}
       alt={label}
       className="carousel-img"
       draggable={false}
