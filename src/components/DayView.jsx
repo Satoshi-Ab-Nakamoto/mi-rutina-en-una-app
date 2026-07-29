@@ -33,32 +33,97 @@ function DetailRow({ label, value }) {
 
 function ExerciseCard({ exercise, index, accent }) {
   const [open, setOpen] = useState(true);
+  const [offset, setOffset] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+
+  const handlePointerDown = (e) => {
+    if (isCompleted || isHidden) return;
+    setDragging(true);
+    setStartX(e.clientX ?? e.touches?.[0]?.clientX ?? 0);
+  };
+  
+  const handlePointerMove = (e) => {
+    if (!dragging) return;
+    const x = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
+    const newOffset = x - startX;
+    // Solo permitir deslizar a la izquierda (valores negativos)
+    if (newOffset < 0) {
+      setOffset(newOffset);
+    }
+  };
+
+  const handlePointerUp = () => {
+    if (!dragging) return;
+    setDragging(false);
+    if (offset < -120) {
+      setOffset(-window.innerWidth);
+      setIsCompleted(true);
+      // Ocultar tras la animacion de check (900ms)
+      setTimeout(() => setIsHidden(true), 900);
+    } else {
+      setOffset(0);
+    }
+  };
+
+  if (isHidden) return null;
+
   return (
-    <div className="exercise-card" style={{ "--accent": accent }}>
-      <button className="exercise-header" onClick={() => setOpen(!open)}>
-        <span className="exercise-num" style={{ color: accent }}>
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <span className="exercise-name">{exercise.name}</span>
-        <span className={`exercise-chevron${open ? " open" : ""}`}>›</span>
-      </button>
-      {open && (
-        <div className="exercise-body">
-          {/* 3D Image Carousel */}
-          {exerciseImages[exercise.name]?.steps?.length > 0 && (
-            <ExerciseCarousel
-              steps={exerciseImages[exercise.name].steps}
-              accent={accent}
-            />
-          )}
-          {/* Detail rows */}
-          <div className="exercise-details">
-            {exercise.details.map(([label, value], i) => (
-              <DetailRow key={i} label={label} value={value} />
-            ))}
-          </div>
+    <div 
+      className={`exercise-card-wrapper ${isCompleted ? 'completed-collapse' : ''}`}
+      onMouseDown={handlePointerDown}
+      onMouseMove={handlePointerMove}
+      onMouseUp={handlePointerUp}
+      onMouseLeave={handlePointerUp}
+      onTouchStart={handlePointerDown}
+      onTouchMove={handlePointerMove}
+      onTouchEnd={handlePointerUp}
+    >
+      <div className="swipe-background">
+        <span className="swipe-check-icon">✓</span>
+      </div>
+      
+      {isCompleted && (
+        <div className="exercise-completed-overlay">
+          <div className="huge-check">✓</div>
         </div>
       )}
+
+      <div 
+        className="exercise-card swipeable-card" 
+        style={{ 
+          "--accent": accent,
+          transform: `translateX(${offset}px)`,
+          transition: dragging ? "none" : "transform 0.3s ease"
+        }}
+      >
+        <button className="exercise-header" onClick={() => { if (offset > -5) setOpen(!open) }}>
+          <span className="exercise-num" style={{ color: accent }}>
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="exercise-name">{exercise.name}</span>
+          <span className={`exercise-chevron${open ? " open" : ""}`}>›</span>
+        </button>
+        {open && (
+          <div className="exercise-body">
+            {/* 3D Image Carousel */}
+            {exerciseImages[exercise.name]?.steps?.length > 0 && (
+              <ExerciseCarousel
+                steps={exerciseImages[exercise.name].steps}
+                accent={accent}
+              />
+            )}
+            {/* Detail rows */}
+            <div className="exercise-details">
+              {exercise.details.map(([label, value], i) => (
+                <DetailRow key={i} label={label} value={value} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

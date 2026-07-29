@@ -59,15 +59,18 @@ export default function ExerciseCarousel({ steps, accent }) {
 
   // Drag / swipe handlers
   const onPointerDown = (e) => {
+    e.stopPropagation();
     setDragging(true);
     setStartX(e.clientX ?? e.touches?.[0]?.clientX ?? 0);
   };
   const onPointerMove = (e) => {
+    e.stopPropagation();
     if (!dragging) return;
     const x = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
     setOffset(x - startX);
   };
-  const onPointerUp = () => {
+  const onPointerUp = (e) => {
+    if (e) e.stopPropagation();
     if (!dragging) return;
     setDragging(false);
     if (offset < -50) go(current + 1);
