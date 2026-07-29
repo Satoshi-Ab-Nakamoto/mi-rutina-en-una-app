@@ -132,57 +132,57 @@ export const exerciseImages = {
   },
   "Elevaciones Laterales (Hombro Lateral - El creador de amplitud)": {
     steps: [
-      { img: null, label: "Inicio — Mancuernas al costado, torso levemente inclinado" },
-      { img: null, label: "Sube — Alas abiertas a altura de hombros, giro de muñeca" },
+      { img: "/jueves/elevaciones_laterales/step1.png", label: "Inicio — Mancuernas al costado, torso levemente inclinado" },
+      { img: "/jueves/elevaciones_laterales/step2.png", label: "Sube — Alas abiertas a altura de hombros, giro de muñeca" },
     ],
   },
   "Vuelos Posteriores / Pájaros (Hombro Posterior - El corrector de postura)": {
     steps: [
-      { img: null, label: "Inicio — Torso paralelo al piso, mancuernas colgando" },
-      { img: null, label: "Vuelo — Brazos hacia los lados, aprieta hombro posterior" },
+      { img: "/jueves/vuelos_posteriores/step1.png", label: "Inicio — Torso paralelo al piso, mancuernas colgando" },
+      { img: "/jueves/vuelos_posteriores/step2.png", label: "Vuelo — Brazos hacia los lados, aprieta hombro posterior" },
     ],
   },
   "Extensión de Tríceps Copa (El tamaño del brazo)": {
     steps: [
-      { img: null, label: "Inicio — Mancuerna detrás de la nuca, codos al techo" },
-      { img: null, label: "Extiende — Bloquea los codos arriba, tríceps al máximo" },
+      { img: "/jueves/triceps_copa/step1.png", label: "Inicio — Mancuerna detrás de la nuca, codos al techo" },
+      { img: "/jueves/triceps_copa/step2.png", label: "Extiende — Bloquea los codos arriba, tríceps al máximo" },
     ],
   },
   "Curl de Bíceps Alternado Estricto (El pico del brazo)": {
     steps: [
-      { img: null, label: "Inicio — Codos PEGADOS a las costillas, no se mueven" },
-      { img: null, label: "Sube — Gira la muñeca, aprieta bíceps 1 seg, baja en 3 seg" },
+      { img: "/jueves/curl_biceps/step1.png", label: "Inicio — Codos PEGADOS a las costillas, no se mueven" },
+      { img: "/jueves/curl_biceps/step2.png", label: "Sube — Gira la muñeca, aprieta bíceps 1 seg, baja en 3 seg" },
     ],
   },
   "Curl de Antebrazo Invertido (Fuerza de Agarre para el Balón)": {
     steps: [
-      { img: null, label: "Sentado — Antebrazos en muslos, manos colgando palmas abajo" },
-      { img: null, label: "Levanta el dorso — Contrae el antebrazo, hasta el fallo" },
+      { img: "/jueves/curl_antebrazo/step1.png", label: "Sentado — Antebrazos en muslos, manos colgando palmas abajo" },
+      { img: "/jueves/curl_antebrazo/step2.png", label: "Levanta el dorso — Contrae el antebrazo, hasta el fallo" },
     ],
   },
 
   // ── VIERNES ────────────────────────────────────────────────────
   "Sentadilla Profunda y Rotaciones": {
     steps: [
-      { img: null, label: "Sentadilla profunda — Talones pegados, 30 seg, cadera abierta" },
-      { img: null, label: "Rotación — Círculos amplios de cadera, lubrica la pelvis" },
+      { img: "/viernes/sentadilla_rotaciones/step1.png", label: "Sentadilla profunda — Talones pegados, 30 seg, cadera abierta" },
+      { img: "/viernes/sentadilla_rotaciones/step2.png", label: "Rotación — Círculos amplios de cadera, lubrica la pelvis" },
     ],
   },
   "Peso Muerto Rumano Unilateral (El constructor de velocidad)": {
     steps: [
-      { img: null, label: "Inicio — Un pie, micro-flexión, mancuerna colgando" },
-      { img: null, label: "Bisagra — Cadera atrás, espalda recta, pierna sube de contrapeso" },
+      { img: "/viernes/peso_muerto_rumano/step1.png", label: "Inicio — Un pie, micro-flexión, mancuerna colgando" },
+      { img: "/viernes/peso_muerto_rumano/step2.png", label: "Bisagra — Cadera atrás, espalda recta, pierna sube de contrapeso" },
     ],
   },
   "Curl Femoral con Liga (Aislamiento total)": {
     steps: [
-      { img: null, label: "Boca abajo — Liga en tobillos, cadera al piso" },
-      { img: null, label: "Flexiona — Talones a glúteos, aprieta 1 seg, baja en 3 seg" },
+      { img: "/viernes/curl_femoral/step1.png", label: "Boca abajo — Liga en tobillos, cadera al piso" },
+      { img: "/viernes/curl_femoral/step2.png", label: "Flexiona — Talones a glúteos, aprieta 1 seg, baja en 3 seg" },
     ],
   },
   "Russian Twists (Giros Rusos Balísticos para el choque)": {
     steps: [
-      { img: null, label: "Equilibrio — Glúteos en el piso, pies levantados, balón al frente" },
+      { img: "/viernes/russian_twists/step1.png", label: "Equilibrio — Glúteos en el piso, pies levantados, balón al frente" },
       { img: null, label: "Giro violento — Toca el piso de un lado, dispara al otro" },
     ],
   },
