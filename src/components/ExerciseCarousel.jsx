@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-
+import Lightbox from "./Lightbox.jsx";
 const STEP_EMOJIS = ["🟣", "🔵", "🟢", "🟡", "🔴"];
 
 function PlaceholderSlide({ label, index, accent }) {
@@ -47,6 +47,8 @@ export default function ExerciseCarousel({ steps, accent }) {
   const [dragging, setDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [offset, setOffset] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [showDetails, setShowDetails] = useState(false);
   const trackRef = useRef(null);
   const total = steps.length;
 
@@ -114,6 +116,7 @@ export default function ExerciseCarousel({ steps, accent }) {
                 transition: dragging && isActive ? "none" : "all 0.45s cubic-bezier(0.25,0.46,0.45,0.94)",
               }}
               onClick={() => !isActive && go(i)}
+              onDoubleClick={() => isActive && setLightboxIndex(i)}
             >
               {step.img
                 ? <ImageCard src={step.img} label={step.label} index={i} accent={accent} />
@@ -124,12 +127,26 @@ export default function ExerciseCarousel({ steps, accent }) {
         })}
       </div>
 
-      {/* Step label */}
+      {/* Step label / Details */}
       <div className="carousel-caption" key={current}>
-        <span className="carousel-step-badge" style={{ background: accent }}>
-          PASO {current + 1} / {total}
-        </span>
-        <p className="carousel-step-label">{steps[current]?.label}</p>
+        <div className="carousel-caption-header">
+          <span className="carousel-step-badge" style={{ background: accent }}>
+            PASO {current + 1} / {total}
+          </span>
+          <button 
+            className="btn-details" 
+            style={{ "--btn-accent": accent }}
+            onClick={() => setShowDetails(!showDetails)}
+          >
+            {showDetails ? "Cerrar Detalles" : "Ver Detalles"}
+          </button>
+        </div>
+        
+        {showDetails && (
+          <div className="carousel-details-panel fade-in">
+            <p className="carousel-step-label">{steps[current]?.label}</p>
+          </div>
+        )}
       </div>
 
       {/* Dot nav */}
@@ -148,6 +165,15 @@ export default function ExerciseCarousel({ steps, accent }) {
       {/* Arrows */}
       <button className="carousel-arrow carousel-arrow-left" onClick={() => go(current - 1)}>‹</button>
       <button className="carousel-arrow carousel-arrow-right" onClick={() => go(current + 1)}>›</button>
+
+      {/* Lightbox Modal */}
+      {lightboxIndex !== null && (
+        <Lightbox 
+          steps={steps} 
+          initialIndex={lightboxIndex} 
+          onClose={() => setLightboxIndex(null)} 
+        />
+      )}
     </div>
   );
 }
