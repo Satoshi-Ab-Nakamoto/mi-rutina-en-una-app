@@ -183,45 +183,45 @@ export const exerciseImages = {
   "Russian Twists (Giros Rusos Balísticos para el choque)": {
     steps: [
       { img: "/viernes/russian_twists/step1.png", label: "Equilibrio — Glúteos en el piso, pies levantados, balón al frente" },
-      { img: null, label: "Giro violento — Toca el piso de un lado, dispara al otro" },
+      { img: "/viernes/russian_twists/step2.png", label: "Giro violento — Toca el piso de un lado, dispara al otro" },
     ],
   },
   "Elevación de Piernas Estricta (Abdomen Inferior)": {
     steps: [
-      { img: null, label: "Inicio — Boca arriba, manos bajo glúteos, piernas rectas" },
-      { img: null, label: "Baja lento — Talones a 1 cm del piso sin tocar, vuelve arriba" },
+      { img: "/viernes/elevacion_piernas/step1.png", label: "Inicio — Boca arriba, manos bajo glúteos, piernas rectas" },
+      { img: "/viernes/elevacion_piernas/step2.png", label: "Baja lento — Talones a 1 cm del piso sin tocar, vuelve arriba" },
     ],
   },
   "Plancha Lateral (El blindaje final)": {
     steps: [
-      { img: null, label: "Apoyo — Antebrazo y pie lateral, cadera elevada" },
-      { img: null, label: "Tensión — Línea diagonal, aprieta oblicuo 45 seg" },
+      { img: "/viernes/plancha_lateral/step1.png", label: "Apoyo — Antebrazo y pie lateral, cadera elevada" },
+      { img: "/viernes/plancha_lateral/step2.png", label: "Tensión — Línea diagonal, aprieta oblicuo 45 seg" },
     ],
   },
 
   // ── SÁBADO ─────────────────────────────────────────────────────
   "Jumping Jacks (Polichinelas) y Movilidad": {
     steps: [
-      { img: null, label: "Polichinelas — 30 seg para elevar la temperatura corporal" },
-      { img: null, label: "Movilidad — Rotaciones de brazos + trote estático" },
+      { img: "/sabado/jumping_jacks/step1.png", label: "Polichinelas — 30 seg para elevar la temperatura corporal" },
+      { img: "/sabado/jumping_jacks/step2.png", label: "Movilidad — Rotaciones de brazos + trote estático" },
     ],
   },
   "Pases de Pecho contra la pared (Máxima Velocidad)": {
     steps: [
-      { img: null, label: "Posición — Frente a la pared, balón al pecho" },
-      { img: null, label: "Frecuencia MÁXIMA — 15 pases en el menor tiempo posible" },
+      { img: "/sabado/pases_pecho/step1.png", label: "Posición — Frente a la pared, balón al pecho" },
+      { img: "/sabado/pases_pecho/step2.png", label: "Frecuencia MÁXIMA — 15 pases en el menor tiempo posible" },
     ],
   },
   "Flexiones Pliométricas (Vuelo Espacial)": {
     steps: [
-      { img: null, label: "Carga — Baja en 2 seg, energía elástica en el pecho" },
-      { img: null, label: "DESPEGUE — Explota hasta que las manos vuelen del suelo" },
+      { img: "/sabado/flexiones_plio/step1.png", label: "Carga — Baja en 2 seg, energía elástica en el pecho" },
+      { img: "/sabado/flexiones_plio/step2.png", label: "DESPEGUE — Explota hasta que las manos vuelen del suelo" },
     ],
   },
   "El Sprint Agónico (6 a 8 Rondas)": {
     steps: [
-      { img: null, label: "Sprint 20 seg — Resistencia media-alta, TODAS las fuerzas" },
-      { img: null, label: "Recuperación 40 seg — Resistencia cero, jala aire profundo" },
+      { img: "/sabado/sprint/step1.png", label: "Sprint 20 seg — Resistencia media-alta, TODAS las fuerzas" },
+      { img: "/sabado/sprint/step2.png", label: "Recuperación 40 seg — Resistencia cero, jala aire profundo" },
     ],
   },
   "Estiramiento Axial y Relajación": {
